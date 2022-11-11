@@ -16,12 +16,13 @@ function writePassword() {
     alert("Please enter an integer between 8 and 128.");
     return
   }
+  //Saves user choice of which characters to include in password
   choiceAlphabet = confirm("Include lower case letters?")
   choiceUpper = confirm("Include upper case letters?")
   choiceNumber = confirm("Include numbers?")
   choiceSpec = confirm("Include special characters?")
-
-  if ((choiceAlphabet && choiceNumber && choiceUpper && choiceSpec) === false){
+// Prevents user from picking no on all character options.
+  if ((!choiceAlphabet && !choiceNumber && !choiceUpper && !choiceSpec) === true){
     alert("Please pick at least one option.")
   }
 // Declare variables for use in the for loop.
@@ -33,6 +34,13 @@ var arrayLength
   for (let i = 0; i < input; i++) {
     //Chooses a number between 0 and 3, which will be used to choose an array
     arraySelector = Math.floor(Math.random()*gen.length);
+    // Accounts for user choice on which characters to include.
+    while ( (!choiceAlphabet && arraySelector == 0 )||
+            (!choiceUpper && arraySelector == 1 ) ||
+            (!choiceNumber && arraySelector == 2) ||
+            (!choiceSpec && arraySelector == 3 ) ){
+              arraySelector = Math.floor(Math.random()*gen.length);
+            }
     //Sets array length for ran char
     //if ranArray = 0 or 1 then i want length = 26
     //if ranArray = 2 then i want length = 10
@@ -56,6 +64,7 @@ var arrayLength
   //turns the items in array into a single text string.
   text = array.join('')
 }
+//Runs the function upon click and spits out random password.
   password();
 alert("Your password is " + text)
   document.getElementById("password").textContent = text
@@ -63,13 +72,3 @@ alert("Your password is " + text)
   
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-// console.log(length)
-// console.log(typeof length)
-// console.log(typeof choiceAlphabet)
-// console.log(choiceAlphabet)
-// console.log(gen)
-// console.log(alphabet.join(''))
-
-// Length query: prompt, convert string to number
-// Numbers query
-// Special char query

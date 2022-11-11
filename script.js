@@ -5,10 +5,7 @@ upper = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R"
 number = [0,1,2,3,4,5,6,7,8,9]
 spec = ["!","@","#","$","%","^","&","*","(",")","-","_","+","=","[","{","]","}","\\","|",":",";","'","\"",",","<",".",">","/","?"]
 gen = [alphabet, upper, number, spec]
-// generates an array randomly from alphabet, upper, number, and spec
 
-// console.log(ranChar)
-// console.log(spec.length)
 
 // Write password to the #password input
 function writePassword() {
@@ -51,11 +48,12 @@ var arrayLength
       }
       //random array is chosen from the 4
     ranArray = gen[arraySelector]
-    // generates an array randomly from alphabet, upper, number, and spec
+    // generates a character randomly from alphabet, upper, number, or spec
     ranChar = ranArray[Math.floor(Math.random()*arrayLength)]
     // Pushes randomly chosen character into an initially blank array
     array.push(ranChar);
   }
+  //turns the items in array into a single text string.
   text = array.join('')
 }
   password();

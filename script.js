@@ -9,18 +9,30 @@ gen = [alphabet, upper, number, spec]
 
 // Write password to the #password input
 function writePassword() {
+  //User to input password length
   input = prompt("Please pick a password length from 8 to 128.")
+//Informs user to enter password length if no text is entered
+  if (input === ''){
+alert("Please pick a password length from 8 to 128.")
+writePassword() }
+//Closes function if cancel is pressed
+ if (input === null){
+    return}
+//Converts string to number
   input = parseInt(input)
-
+//prevents invalid number inputs
   if (input === NaN || input > 128 || input < 8){
     alert("Please enter an integer between 8 and 128.");
     return
   }
+ 
+
+
   //Saves user choice of which characters to include in password
-  choiceAlphabet = confirm("Include lower case letters?")
-  choiceUpper = confirm("Include upper case letters?")
-  choiceNumber = confirm("Include numbers?")
-  choiceSpec = confirm("Include special characters?")
+  choiceAlphabet = confirm("Include lower case letters?\nYes to include, Cancel to omit.")
+  choiceUpper = confirm("Include upper case letters?\nYes to include, Cancel to omit.")
+  choiceNumber = confirm("Include numbers?\nYes to include, Cancel to omit." )
+  choiceSpec = confirm("Include special characters?\nYes to include, Cancel to omit." )
 // Prevents user from picking no on all character options.
   if ((!choiceAlphabet && !choiceNumber && !choiceUpper && !choiceSpec) === true){
     alert("Please pick at least one option.")
@@ -68,6 +80,7 @@ var arrayLength
   password();
 alert("Your password is " + text)
   document.getElementById("password").textContent = text
+  console.log(input)
   }
   
 // Add event listener to generate button

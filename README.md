@@ -17,6 +17,6 @@ If your README is long, add a table of contents to make it easy for users to fin
 
 Click generate password and answer the promps to generate a random password, then copy the value from the page for your own use.
 
-![Screen shot of webpage.](./screenshot.png)
+![Screen shot of webpage.](./screenshot.PNG)
 ![Link to deployed page](https://vicearus.github.io/Password-Generator/)
 
